@@ -14,7 +14,7 @@ public class PlayerMoveState: IState
     }
     public void Execute()
     {
-         float vx = player.rigidBody.velocity.x;
+        float vx = player.rigidBody.velocity.x;
         float vy =  player.rigidBody.velocity.y;
 
         if (player.input.LeftHold()) {
@@ -58,6 +58,12 @@ public class PlayerMoveState: IState
         );
 
         player.animator.SetBool("isRunning", vx != 0 || vy != 0);
+
+        if (player.input.Action())
+        {
+            MockingBird bird = GameObject.Instantiate(Prefabs.instance.MOCKING_BIRD, player.transform.position, Quaternion.identity);
+            bird.Activate();
+        }
     }
     public void Exit()
     {

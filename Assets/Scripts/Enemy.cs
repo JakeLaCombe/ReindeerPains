@@ -9,16 +9,16 @@ public class Enemy : MonoBehaviour
     private Vector3 originalPosition;
     PathFinding levelPath;
     GameObject level;
-    EnemyFSM currentState;
+    public EnemyFSM currentState;
     bool travelingToPatrolPoint;
     List<AStarNode> travelingPath;
     private Animator animator;
+    public PatrolTypes patrolType;
 
     void Start()
     {
         level = GameObject.Find("Level One");
         levelPath = level.GetComponentInChildren<PathFinding>();
-        currentState = EnemyFSM.GENERATE_PATH;
         animator = GetComponent<Animator>();
         originalPosition = this.transform.position;
         travelingToPatrolPoint = true;
@@ -29,20 +29,41 @@ public class Enemy : MonoBehaviour
     {
         if (currentState == EnemyFSM.GENERATE_PATH)
         {
-            GeneratePath();
+            GeneratePath(patrolDestination);
         }
 
         if (currentState == EnemyFSM.TRAVEL_PATH)
         {
             TravelPath();
         }
+
+        if (currentState == EnemyFSM.FREEZE)
+        {
+            if (GameObject.FindGameObjectWithTag("Mocking Bird"))
+            {
+                GeneratePath(GameObject.FindGameObjectWithTag("Mocking Bird").transform.position);
+                patrolDestination = GameObject.FindGameObjectWithTag("Mocking Bird").transform.position;
+            }
+        }
     }
 
-    private void GeneratePath()
+    public void Freeze()
+    {
+        currentState = EnemyFSM.FREEZE;
+        animator.SetBool("isRunning", false);
+    }
+
+    public void Activate()
+    {
+        currentState = EnemyFSM.GENERATE_PATH;
+        animator.SetBool("isRunning", true);
+    }
+
+    private void GeneratePath(Vector3 destination)
     {
         if (travelingToPatrolPoint)
         {
-            travelingPath = levelPath.FindPath(this.transform.position, patrolDestination);
+            travelingPath = levelPath.FindPath(this.transform.position, destination);
             travelingToPatrolPoint = false;
         }
         else
@@ -73,10 +94,14 @@ public class Enemy : MonoBehaviour
 
             animator.SetBool("isRunning", true);
         }
-        else
+        else if (!travelingToPatrolPoint || patrolType != PatrolTypes.STANDING)
         {
             currentState = EnemyFSM.GENERATE_PATH;
             animator.SetBool("isRunning", false);
+        }
+        else
+        {
+            Freeze();
         }
     }
 
@@ -125,6 +150,14 @@ public class Enemy : MonoBehaviour
             this.transform.localScale = currentScale;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Mocking Bird")
+        {
+            Destroy(other.gameObject);
+        }
+    }
 }
 
 public enum EnemyFSM
@@ -133,4 +166,9 @@ public enum EnemyFSM
     GENERATE_PATH,
     TRAVEL_PATH,
     FREEZE,
+}
+
+public enum PatrolTypes {
+    STANDING,
+    MOVING,
 }

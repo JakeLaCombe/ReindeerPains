@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Mocking Bird
   layers:
   - Default
   - TransparentFX
@@ -41,6 +42,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Player
+    uniqueID: 429832055
+    locked: 0
+  - name: Walls
+    uniqueID: 1249502585
+    locked: 0
   - name: PIlls
     uniqueID: 1820022897
+    locked: 0
+  - name: Characters
+    uniqueID: 224618375
     locked: 0
