@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: security_standing_sideways
+  m_Name: security_shooting_sideways
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,9 +20,13 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 2736553224640018423, guid: b2d9c034c8f69eb479abca8d0d52cdf8, type: 3}
-    - time: 0.060000002
-      value: {fileID: 2736553224640018423, guid: b2d9c034c8f69eb479abca8d0d52cdf8, type: 3}
+      value: {fileID: 8116220105230486042, guid: b2d9c034c8f69eb479abca8d0d52cdf8, type: 3}
+    - time: 0.1
+      value: {fileID: 2965982477971182189, guid: b2d9c034c8f69eb479abca8d0d52cdf8, type: 3}
+    - time: 0.2
+      value: {fileID: 3019720506599163230, guid: b2d9c034c8f69eb479abca8d0d52cdf8, type: 3}
+    - time: 0.65999997
+      value: {fileID: 3019720506599163230, guid: b2d9c034c8f69eb479abca8d0d52cdf8, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -42,14 +46,16 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 2736553224640018423, guid: b2d9c034c8f69eb479abca8d0d52cdf8, type: 3}
-    - {fileID: 2736553224640018423, guid: b2d9c034c8f69eb479abca8d0d52cdf8, type: 3}
+    - {fileID: 8116220105230486042, guid: b2d9c034c8f69eb479abca8d0d52cdf8, type: 3}
+    - {fileID: 2965982477971182189, guid: b2d9c034c8f69eb479abca8d0d52cdf8, type: 3}
+    - {fileID: 3019720506599163230, guid: b2d9c034c8f69eb479abca8d0d52cdf8, type: 3}
+    - {fileID: 3019720506599163230, guid: b2d9c034c8f69eb479abca8d0d52cdf8, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.1
+    m_StopTime: 0.7
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
