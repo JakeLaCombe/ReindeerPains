@@ -740,7 +740,7 @@ TextureImporter:
     nameFileIdTable:
       enemy_one02: 378887808240590828
       enemy_one26: -5035333657008628468
-      enemy_one04: 6261886843978571850
+      enemy_one22: -6356696925584163412
       enemy_one05: -8386234007943803280
       enemy_one20: 8302300502575915698
       enemy_one18: -1023209435958678506
@@ -764,7 +764,7 @@ TextureImporter:
       enemy_one24: -9034378439248025781
       enemy_one01: -8716253114696630031
       enemy_one15: 7024584357760747461
-      enemy_one22: -6356696925584163412
+      enemy_one04: 6261886843978571850
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

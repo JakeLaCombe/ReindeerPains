@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0dd4f5f99bead30489dce62b35fc46d1
+guid: ba12002533d2a7642b03a970048ac039
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7985093267654292242
-    second: background_decorations0
+      213: -4962620993392947665
+    second: detection_radar0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -50,7 +50,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -83,13 +83,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: background_decorations0
+      name: detection_radar0
       rect:
         serializedVersion: 2
         x: 1
         y: 1
-        width: 192
-        height: 128
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -97,8 +97,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 00000000000000000800000000000000
-      internalID: 0
+      spriteID: f2ecae5ef7a312bb0800000000000000
+      internalID: -4962620993392947665
       vertices: []
       indices: 
       edges: []
@@ -114,25 +114,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      background_decorations_2: 1976929618
-      background_decorations_4: 708508150
-      background_decorations_15: 1365962627
-      background_decorations_7: 152257681
-      background_decorations_5: 1443103952
-      background_decorations_9: -448001386
-      background_decorations_12: -888918745
-      background_decorations_0: -105666965
-      background_decorations_13: 23445593
-      background_decorations0: 0
-      background_decorations_10: 1584218844
-      background_decorations_8: 1217886642
-      background_decorations_1: 1496501141
-      background_decorations_17: 403517266
-      background_decorations_11: -273759910
-      background_decorations_16: -506758684
-      background_decorations_3: 32618168
-      background_decorations_14: -2098390374
-      background_decorations_6: -1078934796
+      detection_radar0: -4962620993392947665
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

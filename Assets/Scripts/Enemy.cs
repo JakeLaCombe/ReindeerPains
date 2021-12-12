@@ -12,8 +12,17 @@ public class Enemy : MonoBehaviour
     public EnemyFSM currentState;
     bool travelingToPatrolPoint;
     List<AStarNode> travelingPath;
-    private Animator animator;
+    public Animator animator;
     public PatrolTypes patrolType;
+
+    public GameObject detectionRadar;
+
+     private Vector2[] detectionPoints = {
+        new Vector2(-1.0f, 0.0f),
+        new Vector2(1.0f, 0.0f),
+        new Vector2(0.0f, 1.0f),
+        new Vector2(0.0f, -1.0f)
+    };
 
     void Start()
     {
@@ -22,6 +31,7 @@ public class Enemy : MonoBehaviour
         animator = GetComponent<Animator>();
         originalPosition = this.transform.position;
         travelingToPatrolPoint = true;
+        detectionRadar = this.transform.Find("Detection Radar").gameObject;
     }
 
     // Update is called once per frame
@@ -123,16 +133,16 @@ public class Enemy : MonoBehaviour
                 currentScale.x = -Mathf.Abs(currentScale.x);
             }
 
-            // santaDetection.transform.localPosition = detectionPoints[1];
-            // santaDetection.transform.eulerAngles = new Vector3(0, 0, 0);
+            detectionRadar.transform.localPosition = detectionPoints[1];
+            detectionRadar.transform.eulerAngles = new Vector3(0, 0, 0);
             this.transform.localScale = currentScale;
         }
         else if (current.y < target.y)
         {
             animator.SetBool("isFacingDown", false);
             animator.SetBool("isFacingUp", true);
-            // santaDetection.transform.eulerAngles = new Vector3(0, 0, 90);
-            // santaDetection.transform.localPosition = detectionPoints[2];
+            detectionRadar.transform.eulerAngles = new Vector3(0, 0, 90);
+            detectionRadar.transform.localPosition = detectionPoints[2];
 
             Vector3 currentScale = this.transform.localScale;
             currentScale.x = Mathf.Abs(currentScale.x);
@@ -142,8 +152,8 @@ public class Enemy : MonoBehaviour
         {
             animator.SetBool("isFacingDown", true);
             animator.SetBool("isFacingUp", false);
-            // santaDetection.transform.eulerAngles = new Vector3(0, 0, 270);
-            // santaDetection.transform.localPosition = detectionPoints[3];
+            detectionRadar.transform.eulerAngles = new Vector3(0, 0, 270);
+            detectionRadar.transform.localPosition = detectionPoints[3];
 
             Vector3 currentScale = this.transform.localScale;
             currentScale.x = Mathf.Abs(currentScale.x);
@@ -157,6 +167,18 @@ public class Enemy : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
+
+        if (other.tag == "Player")
+        {
+            this.Freeze();
+            this.animator.SetBool("isShooting", true);
+            other.gameObject.GetComponent<Player>().Kill();
+        }
+    }
+
+    public void PositionRadar()
+    {
+
     }
 }
 
