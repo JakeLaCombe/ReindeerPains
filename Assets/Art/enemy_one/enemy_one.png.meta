@@ -165,7 +165,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 171
+        y: 205
         width: 32
         height: 32
       alignment: 0
@@ -186,7 +186,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 35
-        y: 171
+        y: 205
         width: 32
         height: 32
       alignment: 0
@@ -207,7 +207,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 69
-        y: 171
+        y: 205
         width: 32
         height: 32
       alignment: 0
@@ -228,7 +228,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 103
-        y: 171
+        y: 205
         width: 32
         height: 32
       alignment: 0
@@ -249,7 +249,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 137
-        y: 171
+        y: 205
         width: 32
         height: 32
       alignment: 0
@@ -270,7 +270,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 171
-        y: 171
+        y: 205
         width: 32
         height: 32
       alignment: 0
@@ -290,8 +290,8 @@ TextureImporter:
       name: enemy_one06
       rect:
         serializedVersion: 2
-        x: 1
-        y: 137
+        x: 205
+        y: 205
         width: 32
         height: 32
       alignment: 0
@@ -311,8 +311,8 @@ TextureImporter:
       name: enemy_one07
       rect:
         serializedVersion: 2
-        x: 35
-        y: 137
+        x: 1
+        y: 171
         width: 32
         height: 32
       alignment: 0
@@ -332,8 +332,8 @@ TextureImporter:
       name: enemy_one08
       rect:
         serializedVersion: 2
-        x: 69
-        y: 137
+        x: 35
+        y: 171
         width: 32
         height: 32
       alignment: 0
@@ -353,8 +353,8 @@ TextureImporter:
       name: enemy_one09
       rect:
         serializedVersion: 2
-        x: 103
-        y: 137
+        x: 69
+        y: 171
         width: 32
         height: 32
       alignment: 0
@@ -374,8 +374,8 @@ TextureImporter:
       name: enemy_one10
       rect:
         serializedVersion: 2
-        x: 137
-        y: 137
+        x: 103
+        y: 171
         width: 32
         height: 32
       alignment: 0
@@ -395,8 +395,8 @@ TextureImporter:
       name: enemy_one11
       rect:
         serializedVersion: 2
-        x: 171
-        y: 137
+        x: 137
+        y: 171
         width: 32
         height: 32
       alignment: 0
@@ -416,8 +416,8 @@ TextureImporter:
       name: enemy_one12
       rect:
         serializedVersion: 2
-        x: 1
-        y: 103
+        x: 171
+        y: 171
         width: 32
         height: 32
       alignment: 0
@@ -437,8 +437,8 @@ TextureImporter:
       name: enemy_one13
       rect:
         serializedVersion: 2
-        x: 35
-        y: 103
+        x: 205
+        y: 171
         width: 32
         height: 32
       alignment: 0
@@ -458,8 +458,8 @@ TextureImporter:
       name: enemy_one14
       rect:
         serializedVersion: 2
-        x: 69
-        y: 103
+        x: 1
+        y: 137
         width: 32
         height: 32
       alignment: 0
@@ -479,8 +479,8 @@ TextureImporter:
       name: enemy_one15
       rect:
         serializedVersion: 2
-        x: 103
-        y: 103
+        x: 35
+        y: 137
         width: 32
         height: 32
       alignment: 0
@@ -500,8 +500,8 @@ TextureImporter:
       name: enemy_one16
       rect:
         serializedVersion: 2
-        x: 137
-        y: 103
+        x: 69
+        y: 137
         width: 32
         height: 32
       alignment: 0
@@ -521,8 +521,8 @@ TextureImporter:
       name: enemy_one17
       rect:
         serializedVersion: 2
-        x: 171
-        y: 103
+        x: 103
+        y: 137
         width: 32
         height: 32
       alignment: 0
@@ -542,8 +542,8 @@ TextureImporter:
       name: enemy_one18
       rect:
         serializedVersion: 2
-        x: 1
-        y: 69
+        x: 137
+        y: 137
         width: 32
         height: 32
       alignment: 0
@@ -563,8 +563,8 @@ TextureImporter:
       name: enemy_one19
       rect:
         serializedVersion: 2
-        x: 35
-        y: 69
+        x: 171
+        y: 137
         width: 32
         height: 32
       alignment: 0
@@ -584,8 +584,8 @@ TextureImporter:
       name: enemy_one20
       rect:
         serializedVersion: 2
-        x: 69
-        y: 69
+        x: 205
+        y: 137
         width: 32
         height: 32
       alignment: 0
@@ -605,8 +605,8 @@ TextureImporter:
       name: enemy_one21
       rect:
         serializedVersion: 2
-        x: 103
-        y: 69
+        x: 1
+        y: 103
         width: 32
         height: 32
       alignment: 0
@@ -626,8 +626,8 @@ TextureImporter:
       name: enemy_one22
       rect:
         serializedVersion: 2
-        x: 137
-        y: 69
+        x: 35
+        y: 103
         width: 32
         height: 32
       alignment: 0
@@ -647,8 +647,8 @@ TextureImporter:
       name: enemy_one23
       rect:
         serializedVersion: 2
-        x: 171
-        y: 69
+        x: 69
+        y: 103
         width: 32
         height: 32
       alignment: 0
@@ -668,8 +668,8 @@ TextureImporter:
       name: enemy_one24
       rect:
         serializedVersion: 2
-        x: 1
-        y: 35
+        x: 103
+        y: 103
         width: 32
         height: 32
       alignment: 0
@@ -689,8 +689,8 @@ TextureImporter:
       name: enemy_one25
       rect:
         serializedVersion: 2
-        x: 35
-        y: 35
+        x: 137
+        y: 103
         width: 32
         height: 32
       alignment: 0
@@ -710,8 +710,8 @@ TextureImporter:
       name: enemy_one26
       rect:
         serializedVersion: 2
-        x: 69
-        y: 35
+        x: 171
+        y: 103
         width: 32
         height: 32
       alignment: 0
@@ -723,6 +723,237 @@ TextureImporter:
       bones: []
       spriteID: c0d9e60a7b6ee1ab0800000000000000
       internalID: -5035333657008628468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_one27
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 103
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00000000000000000800000000000000
+      internalID: 0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_one28
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 69
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00000000000000000800000000000000
+      internalID: 0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_one29
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 69
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00000000000000000800000000000000
+      internalID: 0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_one30
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 69
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00000000000000000800000000000000
+      internalID: 0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_one31
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 69
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00000000000000000800000000000000
+      internalID: 0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_one32
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 69
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00000000000000000800000000000000
+      internalID: 0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_one33
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 69
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00000000000000000800000000000000
+      internalID: 0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_one34
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 69
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00000000000000000800000000000000
+      internalID: 0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_one35
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 35
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00000000000000000800000000000000
+      internalID: 0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_one36
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 35
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00000000000000000800000000000000
+      internalID: 0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_one37
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 35
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00000000000000000800000000000000
+      internalID: 0
       vertices: []
       indices: 
       edges: []
@@ -740,9 +971,13 @@ TextureImporter:
     nameFileIdTable:
       enemy_one02: 378887808240590828
       enemy_one26: -5035333657008628468
-      enemy_one22: -6356696925584163412
+      enemy_one27: 0
+      enemy_one29: 0
+      enemy_one37: 0
+      enemy_one31: 0
       enemy_one05: -8386234007943803280
       enemy_one20: 8302300502575915698
+      enemy_one33: 0
       enemy_one18: -1023209435958678506
       enemy_one17: -3942491637447045464
       enemy_one21: -7846857863814099837
@@ -751,20 +986,27 @@ TextureImporter:
       enemy_one23: 1698468284738915184
       enemy_one25: 2188312123779235091
       enemy_one19: -2129447079450987148
+      enemy_one32: 0
+      enemy_one34: 0
       enemy_one11: -8882828487786278247
       enemy_one10: 6870860523203248821
+      enemy_one04: 6261886843978571850
       enemy_one13: 7812301355865291974
       enemy_one07: 7090437223060426425
       enemy_one00: -952057593628897738
+      enemy_one35: 0
+      enemy_one30: 0
       enemy_one09: 3151444588101419558
       enemy_one06: -3854113700321932839
+      enemy_one36: 0
       enemy_one16: 1545510480178091692
       enemy_one03: 8755000655975626835
       enemy_one12: -6793372359102953679
       enemy_one24: -9034378439248025781
       enemy_one01: -8716253114696630031
       enemy_one15: 7024584357760747461
-      enemy_one04: 6261886843978571850
+      enemy_one28: 0
+      enemy_one22: -6356696925584163412
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

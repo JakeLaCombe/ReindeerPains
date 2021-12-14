@@ -14,6 +14,7 @@ public class PlayerDeadState: IState
     }
     public void Execute()
     {
+       this.player.rigidBody.velocity = new Vector2(0.0f, 0.0f);
        this.player.animator.SetBool("isDead", true);
     }
     public void Exit()
