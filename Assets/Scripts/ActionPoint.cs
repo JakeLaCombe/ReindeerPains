@@ -5,19 +5,29 @@ using UnityEngine;
 public class ActionPoint : MonoBehaviour
 {
     // Start is called before the first frame update
-    private GameObject currentObject;
+    private List<GameObject> currentObjects;
+
+    private void Start()
+    {
+        currentObjects = new List<GameObject>();
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        currentObject = other.gameObject;
+        Debug.Log("Adding Object: " + other.name);
+        currentObjects.Add(other.gameObject);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        currentObject = null;    
+        if (currentObjects.Contains(other.gameObject))
+        {
+            currentObjects.Remove(other.gameObject);
+        }
     }
 
-    public GameObject getActiveObject()
+    public List<GameObject> getActiveObjects()
     {
-        return currentObject;
+        return currentObjects;
     }
 }

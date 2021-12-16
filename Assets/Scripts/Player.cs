@@ -43,9 +43,9 @@ public class Player : MonoBehaviour
         stateMachine.ChangeState(playerDeadState);
     }
 
-    public GameObject GetTouchingObject()
+    public List<GameObject> GetTouchingObjects()
     {
-        return actionPoint.getActiveObject();
+        return actionPoint.getActiveObjects();
     }
 
 }
