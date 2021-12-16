@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Store_36
+  m_Name: StoreExit
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 2090816597, guid: 23b2e9e1524062f42a2f85a5f67e413a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

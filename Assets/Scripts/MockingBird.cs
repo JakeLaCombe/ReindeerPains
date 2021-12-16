@@ -32,7 +32,6 @@ public class MockingBird : MonoBehaviour
 
      private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Mcking Bird Collision:" + other.tag);
         if (other.tag == "Mocking Bird")
         {
             Destroy(other.gameObject);

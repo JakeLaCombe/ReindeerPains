@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     public Animator animator;
     public IInputable input;
     public SpriteRenderer spriteRenderer;
-    public GameObject objectFinder;
+    public ActionPoint actionPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +28,8 @@ public class Player : MonoBehaviour
         playerMoveState = new PlayerMoveState(this);
         playerDeadState = new PlayerDeadState(this);
         stateMachine.ChangeState(playerMoveState);
+
+        actionPoint = this.transform.Find("ActionPoint").GetComponent<ActionPoint>();
     }
 
     // Update is called once per frame
@@ -41,39 +43,9 @@ public class Player : MonoBehaviour
         stateMachine.ChangeState(playerDeadState);
     }
 
-
-
-    // private void ProcessAction()
-    // {
-    //     if (touchingChristmasTree != null && !touchingChristmasTree.HasGifts())
-    //     {
-    //         touchingChristmasTree.SetGifts();
-    //         SoundManager.instance.setGifts.Play();
-    //     }
-    //     else
-    //     {
-    //         PathFinding tilemap = GameManager.Instance.currentLevel.GetComponentInChildren<PathFinding>();
-    //         TileBase tile = tilemap.GetTile(objectFinder.transform.position);
-
-    //         if (tile != null)
-    //         {
-    //             if (tile.name == "back_mid_section_2")
-    //             {
-    //                 GameManager.Instance.CheckLevelComplete();
-    //             }
-    //         }
-    //     }
-    // }
-
-    private void OnTriggerEnter2D(Collider2D other)
+    public GameObject GetTouchingObject()
     {
-      
+        return actionPoint.getActiveObject();
     }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-       
-    }
-
- 
 }
