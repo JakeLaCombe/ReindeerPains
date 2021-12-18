@@ -9,7 +9,7 @@ public class MaterialPickup : MonoBehaviour
 
     public void GrabItem()
     {
-        switch(type)
+        switch (type)
         {
             case MaterialType.REINDEER_PILL:
                 Supplies.instance.reindeerPills += 1;
@@ -19,6 +19,9 @@ public class MaterialPickup : MonoBehaviour
                 break;
             case MaterialType.VACCINE:
                 Supplies.instance.vaccines += 1;
+                break;
+            case MaterialType.ROOSTER_DECOY:
+                Supplies.instance.roosterDecoys += 1;
                 break;
         }
 
@@ -31,5 +34,6 @@ public enum MaterialType
     REINDEER_PILL,
     COVID_PILL,
     VACCINE,
+    ROOSTER_DECOY
 
 }
