@@ -9,6 +9,10 @@ public class Prefabs : MonoBehaviour
     public Player player;
     public MockingBird MOCKING_BIRD;
 
+    public Smoke SMOKE;
+
+    public SmokeTrap SMOKE_TRAP;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -21,12 +25,12 @@ public class Prefabs : MonoBehaviour
     }
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

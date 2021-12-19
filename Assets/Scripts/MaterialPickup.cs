@@ -6,7 +6,13 @@ public class MaterialPickup : MonoBehaviour
 {
     // Start is called before the first frame update
     public MaterialType type;
-
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            GrabItem();
+        }
+    }
     public void GrabItem()
     {
         switch (type)

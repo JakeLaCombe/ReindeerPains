@@ -95,6 +95,13 @@ public class PlayerMoveState : IState
             bird.Activate();
             Supplies.instance.roosterDecoys -= 1;
         }
+
+        if (player.input.DropGas() && Supplies.instance.smokeTraps > 0)
+        {
+            SmokeTrap trap = GameObject.Instantiate(Prefabs.instance.SMOKE_TRAP, player.transform.position, Quaternion.identity);
+            trap.Activate();
+            Supplies.instance.smokeTraps -= 1;
+        }
     }
 
     public void processAction()
@@ -146,16 +153,6 @@ public class PlayerMoveState : IState
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-
+        // no-op
     }
 }
-
-/**
-
-
-public void Move()
-    {
-       
-    }
-
-*/

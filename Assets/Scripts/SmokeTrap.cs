@@ -9,17 +9,23 @@ public class SmokeTrap : MonoBehaviour
     public Animator animator;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         boxCollider2D = this.GetComponent<BoxCollider2D>();
-        boxCollider2D.enabled = false;
         animator = GetComponent<Animator>();
+        animator.SetBool("isActive", isActive);
     }
 
     // Update is called once per frame
     void Update()
     {
+        // animator.SetBool("isActive", isActive);
+    }
 
+    public void Activate()
+    {
+        animator.SetBool("isActive", true);
+        isActive = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -28,6 +34,13 @@ public class SmokeTrap : MonoBehaviour
         {
             Destroy(this.gameObject);
             Supplies.instance.smokeTraps += 1;
+        }
+
+        if (other.tag == "Enemy" && isActive)
+        {
+            Destroy(this.gameObject);
+            Smoke smoke = GameObject.Instantiate(Prefabs.instance.SMOKE, this.transform.position, Quaternion.identity);
+            other.GetComponent<Enemy>().SleepTransition();
         }
     }
 }

@@ -27,6 +27,7 @@ public class ActionPoint : MonoBehaviour
 
     public List<GameObject> getActiveObjects()
     {
+        currentObjects = currentObjects.FindAll(item => item != null);
         return currentObjects;
     }
 }

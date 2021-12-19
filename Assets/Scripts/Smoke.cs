@@ -23,6 +23,7 @@ public class Smoke : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Active");
         if (other.tag == "Enemy")
         {
             other.gameObject.GetComponent<Enemy>().SleepTransition();

@@ -17,6 +17,7 @@ public class EnemyShoot : IState
     public void Enter()
     {
         animator = enemy.GetComponent<Animator>();
+        animator.SetBool("isShooting", true);
     }
     public void Execute()
     {

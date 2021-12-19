@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         input = this.gameObject.GetComponent<IInputable>();
-        
+
         stateMachine = new StateMachine();
         playerMoveState = new PlayerMoveState(this);
         playerDeadState = new PlayerDeadState(this);
