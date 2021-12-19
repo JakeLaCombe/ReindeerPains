@@ -11,10 +11,10 @@ public interface IInputable
     bool LeftHold();
     bool Right();
     bool RightHold();
-    bool Action();
-    bool ActionHold();
-    bool SecondaryAction();
-    bool SecondaryActionHold();
+    bool PickUp();
+    bool DropDecoy();
+    bool DropGas();
+    bool ShootVaccine();
     bool Pause();
     bool StartButton();
 }

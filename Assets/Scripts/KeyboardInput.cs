@@ -8,7 +8,10 @@ public class KeyboardInput : MonoBehaviour, IInputable
     public KeyCode DOWN = KeyCode.DownArrow;
     public KeyCode LEFT = KeyCode.LeftArrow;
     public KeyCode RIGHT = KeyCode.RightArrow;
-    public KeyCode ACTION = KeyCode.C;
+    public KeyCode DECOY_DROP = KeyCode.Z;
+    public KeyCode VACCINE_SHOOT = KeyCode.X;
+    public KeyCode GAS_DROP = KeyCode.C;
+    public KeyCode PICKUP = KeyCode.Space;
     public KeyCode PAUSE = KeyCode.Return;
     public KeyCode SECONDARY_ACTION = KeyCode.X;
 
@@ -52,16 +55,25 @@ public class KeyboardInput : MonoBehaviour, IInputable
         return Input.GetKey(RIGHT);
     }
 
-    public bool Action()
+    public bool PickUp()
     {
-        return Input.GetKeyDown(ACTION);
+        return Input.GetKeyDown(PICKUP);
     }
 
-    public bool ActionHold()
+    public bool DropDecoy()
     {
-        return Input.GetKey(ACTION);
+        return Input.GetKeyDown(DECOY_DROP);
     }
 
+    public bool DropGas()
+    {
+        return Input.GetKeyDown(GAS_DROP);
+    }
+
+    public bool ShootVaccine()
+    {
+        return Input.GetKeyDown(VACCINE_SHOOT);
+    }
 
     public bool Pause()
     {

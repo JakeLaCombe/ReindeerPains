@@ -958,6 +958,132 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: enemy_one38
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 35
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00000000000000000800000000000000
+      internalID: 0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_one39
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 35
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00000000000000000800000000000000
+      internalID: 0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_one40
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 35
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00000000000000000800000000000000
+      internalID: 0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_one41
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 35
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00000000000000000800000000000000
+      internalID: 0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_one42
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00000000000000000800000000000000
+      internalID: 0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_one43
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 1
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00000000000000000800000000000000
+      internalID: 0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -970,43 +1096,49 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       enemy_one02: 378887808240590828
-      enemy_one26: -5035333657008628468
-      enemy_one27: 0
-      enemy_one29: 0
       enemy_one37: 0
+      enemy_one27: 0
+      enemy_one04: 6261886843978571850
+      enemy_one39: 0
+      enemy_one41: 0
+      enemy_one18: -1023209435958678506
+      enemy_one21: -7846857863814099837
+      enemy_one08: 734661500526853151
+      enemy_one25: 2188312123779235091
+      enemy_one23: 1698468284738915184
+      enemy_one34: 0
+      enemy_one19: -2129447079450987148
+      enemy_one22: -6356696925584163412
+      enemy_one10: 6870860523203248821
+      enemy_one35: 0
+      enemy_one38: 0
+      enemy_one16: 1545510480178091692
+      enemy_one12: -6793372359102953679
+      enemy_one15: 7024584357760747461
+      enemy_one26: -5035333657008628468
+      enemy_one29: 0
       enemy_one31: 0
       enemy_one05: -8386234007943803280
       enemy_one20: 8302300502575915698
-      enemy_one33: 0
-      enemy_one18: -1023209435958678506
       enemy_one17: -3942491637447045464
-      enemy_one21: -7846857863814099837
-      enemy_one08: 734661500526853151
       enemy_one14: 2837709514573744156
-      enemy_one23: 1698468284738915184
-      enemy_one25: 2188312123779235091
-      enemy_one19: -2129447079450987148
+      enemy_one43: 0
       enemy_one32: 0
-      enemy_one34: 0
       enemy_one11: -8882828487786278247
-      enemy_one10: 6870860523203248821
-      enemy_one04: 6261886843978571850
+      enemy_one40: 0
+      enemy_one42: 0
       enemy_one13: 7812301355865291974
       enemy_one07: 7090437223060426425
       enemy_one00: -952057593628897738
-      enemy_one35: 0
+      enemy_one36: 0
       enemy_one30: 0
       enemy_one09: 3151444588101419558
       enemy_one06: -3854113700321932839
-      enemy_one36: 0
-      enemy_one16: 1545510480178091692
       enemy_one03: 8755000655975626835
-      enemy_one12: -6793372359102953679
       enemy_one24: -9034378439248025781
       enemy_one01: -8716253114696630031
-      enemy_one15: 7024584357760747461
       enemy_one28: 0
-      enemy_one22: -6356696925584163412
+      enemy_one33: 0
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

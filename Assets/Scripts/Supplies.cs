@@ -8,6 +8,7 @@ public class Supplies
     public int reindeerPills;
     public int covidPills;
     public int roosterDecoys;
+    public int smokeTraps;
 
     private Supplies()
     {
@@ -15,6 +16,7 @@ public class Supplies
         reindeerPills = 0;
         covidPills = 0;
         roosterDecoys = 0;
+        smokeTraps = 0;
     }
 
     public void Reset()
@@ -23,5 +25,6 @@ public class Supplies
         reindeerPills = 0;
         covidPills = 0;
         roosterDecoys = 0;
+        smokeTraps = 0;
     }
 }

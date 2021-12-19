@@ -84,15 +84,16 @@ public class PlayerMoveState : IState
 
         player.animator.SetBool("isRunning", vx != 0 || vy != 0);
 
-        if (player.input.Action())
+        if (player.input.PickUp())
         {
             processAction();
         }
 
-        if (player.input.SecondaryAction())
+        if (player.input.DropDecoy() && Supplies.instance.roosterDecoys > 0)
         {
             MockingBird bird = GameObject.Instantiate(Prefabs.instance.MOCKING_BIRD, player.transform.position, Quaternion.identity);
             bird.Activate();
+            Supplies.instance.roosterDecoys -= 1;
         }
     }
 
@@ -100,8 +101,6 @@ public class PlayerMoveState : IState
     {
         if (player.GetTouchingObjects().Count > 0)
         {
-            Debug.Log(player.GetTouchingObjects().Count);
-
             GameObject wall = player.GetTouchingObjects().Find(delegate (GameObject bk)
                 {
                     return bk.name == "Wall";
@@ -128,12 +127,8 @@ public class PlayerMoveState : IState
                }
            );
 
-            Debug.Log("Material Pickup");
-            Debug.Log(materialPickup);
-
             if (materialPickup != null)
             {
-                Debug.Log("Pickup");
                 materialPickup.GetComponent<MaterialPickup>().GrabItem();
             }
         }
@@ -145,6 +140,11 @@ public class PlayerMoveState : IState
     }
 
     public void Exit()
+    {
+
+    }
+
+    public void OnTriggerEnter2D(Collider2D other)
     {
 
     }
