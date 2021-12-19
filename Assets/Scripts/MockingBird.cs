@@ -16,7 +16,7 @@ public class MockingBird : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void Activate()
@@ -30,11 +30,12 @@ public class MockingBird : MonoBehaviour
         return active;
     }
 
-     private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Mocking Bird")
         {
             Destroy(other.gameObject);
         }
+
     }
 }

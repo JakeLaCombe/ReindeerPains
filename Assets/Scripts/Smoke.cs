@@ -25,7 +25,7 @@ public class Smoke : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
-            Destroy(other.gameObject);
+            other.gameObject.GetComponent<Enemy>().SleepTransition();
         }
     }
 }

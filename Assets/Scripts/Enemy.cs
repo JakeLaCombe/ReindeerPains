@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     public Vector3 patrolDestination;
     public EnemyMove enemyMoveState;
     public EnemyShoot enemyShoot;
+    public EnemySleep enemySleep;
 
 
     void Start()
@@ -17,6 +18,7 @@ public class Enemy : MonoBehaviour
         stateMachine = new StateMachine();
         enemyMoveState = new EnemyMove(this, patrolType, patrolDestination);
         enemyShoot = new EnemyShoot(this);
+        enemySleep = new EnemySleep(this);
         stateMachine.ChangeState(enemyMoveState);
     }
 
@@ -33,6 +35,16 @@ public class Enemy : MonoBehaviour
     public void ShootTransition()
     {
         stateMachine.ChangeState(enemyShoot);
+    }
+
+    public void SleepTransition()
+    {
+        stateMachine.ChangeState(enemySleep);
+    }
+
+    public void MovePlayer()
+    {
+        stateMachine.ChangeState(enemyMoveState);
     }
 }
 
