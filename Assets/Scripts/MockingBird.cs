@@ -40,6 +40,5 @@ public class MockingBird : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
-
     }
 }

@@ -128,7 +128,12 @@ public class PlayerMoveState : IState
                 TileBase tile = wall.GetComponent<Tilemap>().GetTile(position);
 
 
-                if (tile != null && tile.name == "StoreExit")
+                if (tile != null)
+                {
+                    Debug.Log(tile.name);
+                }
+
+                if (tile != null && (tile.name == "StoreExit" || tile.name == "ChimnyExit"))
                 {
                     SceneManager.LoadScene("Town");
                 }
