@@ -10,7 +10,7 @@ public class PlayerMoveState : IState
 
     private Vector2[] detectionPoints = {
         new Vector2(-1.0f, 0.0f),
-        new Vector2(0.25f, -0.25f),
+        new Vector2(1.0f, 0.0f),
         new Vector2(0.0f, 0.5f),
         new Vector2(0.0f, -1.25f)
     };
@@ -102,6 +102,12 @@ public class PlayerMoveState : IState
             trap.Activate();
             Supplies.instance.smokeTraps -= 1;
         }
+
+        if (player.input.ShootVaccine())
+        {
+            VaccineProjectile projectile = GameObject.Instantiate(Prefabs.instance.VACCINE_PROJECTILE, player.transform.position, Quaternion.identity);
+            projectile.LaunchDirection(player.actionPoint.transform.localPosition * player.transform.localScale.x);
+        }
     }
 
     public void processAction()
@@ -137,6 +143,20 @@ public class PlayerMoveState : IState
             if (materialPickup != null)
             {
                 materialPickup.GetComponent<MaterialPickup>().GrabItem();
+            }
+
+             GameObject enemyObject = player.GetTouchingObjects().Find(delegate (GameObject bk)
+               {
+                   return bk.GetComponent<Enemy>() != null;
+               }
+           );
+
+            Enemy enemy = enemyObject.GetComponent<Enemy>();
+
+            if (enemy != null && !enemy.HasBeenVaccinated() && Supplies.instance.vaccines > 0)
+            {
+                Supplies.instance.vaccines -= 1;
+                enemy.GetComponent<Enemy>().Vaccinate();
             }
         }
     }

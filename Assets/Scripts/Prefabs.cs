@@ -8,10 +8,9 @@ public class Prefabs : MonoBehaviour
     public static Prefabs instance;
     public Player player;
     public MockingBird MOCKING_BIRD;
-
     public Smoke SMOKE;
-
     public SmokeTrap SMOKE_TRAP;
+    public VaccineProjectile VACCINE_PROJECTILE;
 
     // Start is called before the first frame update
     void Awake()

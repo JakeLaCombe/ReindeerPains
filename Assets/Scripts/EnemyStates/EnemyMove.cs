@@ -17,6 +17,8 @@ public class EnemyMove : IState
     private Vector3 originalPosition;
     private Vector3 patrolDestination;
 
+    private float speed = 1.0f;
+
     enum PathState
     {
         INITIAL,
@@ -76,6 +78,7 @@ public class EnemyMove : IState
 
     private void GeneratePath(Vector3 destination)
     {
+        speed = 1.0f;
         if (travelingToPatrolPoint)
         {
             travelingPath = levelPath.FindPath(enemy.transform.position, destination);
@@ -90,6 +93,14 @@ public class EnemyMove : IState
         currentState = PathState.TRAVEL_PATH;
     }
 
+    public void NewDestination(Vector3 newPosition)
+    {
+        speed = 8.0f;
+        travelingPath = levelPath.FindPath(enemy.transform.position, newPosition);
+        travelingToPatrolPoint = true;
+        currentState = PathState.TRAVEL_PATH;
+    }
+
     private void TravelPath()
     {
         if (travelingPath.Count > 0)
@@ -99,7 +110,7 @@ public class EnemyMove : IState
             nextPosition.x += 0.5f;
             nextPosition.y += 0.5f;
 
-            enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, nextPosition, Time.deltaTime * 3.0f);
+            enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, nextPosition, Time.deltaTime * 3.0f * speed);
             DetermineAnimation(enemy.transform.position, nextPosition);
 
             if (Mathf.Abs(enemy.transform.position.x - nextPosition.x) < float.Epsilon && Mathf.Abs(enemy.transform.position.y - nextPosition.y) < float.Epsilon)

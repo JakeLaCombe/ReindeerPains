@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     public EnemyShoot enemyShoot;
     public EnemySleep enemySleep;
 
+    private bool isVaccinated;
 
     void Start()
     {
@@ -20,6 +21,7 @@ public class Enemy : MonoBehaviour
         enemyShoot = new EnemyShoot(this);
         enemySleep = new EnemySleep(this);
         stateMachine.ChangeState(enemyMoveState);
+        this.transform.Find("Vaccinated").gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -45,6 +47,22 @@ public class Enemy : MonoBehaviour
     public void MovePlayer()
     {
         stateMachine.ChangeState(enemyMoveState);
+    }
+
+    public void Vaccinate()
+    {
+        isVaccinated = true;
+        this.transform.Find("Vaccinated").gameObject.SetActive(true);
+        
+        if (stateMachine.currentState == enemyMoveState)
+        {
+            enemyMoveState.NewDestination(GameObject.Find("Player").transform.position);
+        }
+    }
+
+    public bool HasBeenVaccinated()
+    {
+        return isVaccinated;
     }
 }
 
