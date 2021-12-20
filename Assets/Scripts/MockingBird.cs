@@ -13,6 +13,10 @@ public class MockingBird : MonoBehaviour
         active = false;
     }
 
+    void Start() {
+        
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -32,7 +36,7 @@ public class MockingBird : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Mocking Bird")
+        if (other.tag == "Enemy")
         {
             Destroy(other.gameObject);
         }

@@ -29,6 +29,9 @@ public class MaterialPickup : MonoBehaviour
             case MaterialType.ROOSTER_DECOY:
                 Supplies.instance.roosterDecoys += 1;
                 break;
+             case MaterialType.SHOTGUN:
+                Supplies.instance.hasShotgun = true;
+                break;
         }
 
         Destroy(this.gameObject);
@@ -40,6 +43,7 @@ public enum MaterialType
     REINDEER_PILL,
     COVID_PILL,
     VACCINE,
-    ROOSTER_DECOY
+    ROOSTER_DECOY,
+    SHOTGUN
 
 }

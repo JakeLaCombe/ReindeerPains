@@ -9,6 +9,7 @@ public class Supplies
     public int covidPills;
     public int roosterDecoys;
     public int smokeTraps;
+    public bool hasShotgun;
 
     private Supplies()
     {
@@ -26,5 +27,6 @@ public class Supplies
         covidPills = 0;
         roosterDecoys = 0;
         smokeTraps = 0;
+        hasShotgun = false;
     }
 }

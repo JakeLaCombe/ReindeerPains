@@ -103,7 +103,7 @@ public class PlayerMoveState : IState
             Supplies.instance.smokeTraps -= 1;
         }
 
-        if (player.input.ShootVaccine())
+        if (player.input.ShootVaccine() && Supplies.instance.hasShotgun)
         {
             VaccineProjectile projectile = GameObject.Instantiate(Prefabs.instance.VACCINE_PROJECTILE, player.transform.position, Quaternion.identity);
             projectile.LaunchDirection(player.actionPoint.transform.localPosition * player.transform.localScale.x);
@@ -151,7 +151,7 @@ public class PlayerMoveState : IState
                }
            );
 
-            Enemy enemy = enemyObject.GetComponent<Enemy>();
+            Enemy enemy = enemyObject != null ? enemyObject.GetComponent<Enemy>() : null;
 
             if (enemy != null && !enemy.HasBeenVaccinated() && Supplies.instance.vaccines > 0)
             {

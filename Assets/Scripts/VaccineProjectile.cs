@@ -50,5 +50,10 @@ public class VaccineProjectile : MonoBehaviour
             Destroy(this.gameObject);
             enemy.Vaccinate();
         }
+
+        if (other.name == "Wall")
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

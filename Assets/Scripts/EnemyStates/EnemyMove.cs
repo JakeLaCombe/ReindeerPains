@@ -16,6 +16,7 @@ public class EnemyMove : IState
     GameObject level;
     private Vector3 originalPosition;
     private Vector3 patrolDestination;
+    private GameObject decoyTarget;
 
     private float speed = 1.0f;
 
@@ -64,14 +65,13 @@ public class EnemyMove : IState
         {
             TravelPath();
         }
-
-        if (currentState == PathState.FREEZE)
+        
+        GameObject decoy = GameObject.FindGameObjectWithTag("Mocking Bird");
+        
+        if (decoy != null && decoy != decoyTarget)
         {
-            if (GameObject.FindGameObjectWithTag("Mocking Bird"))
-            {
-                GeneratePath(GameObject.FindGameObjectWithTag("Mocking Bird").transform.position);
-                patrolDestination = GameObject.FindGameObjectWithTag("Mocking Bird").transform.position;
-            }
+            decoyTarget = decoy;
+            GeneratePath(GameObject.FindGameObjectWithTag("Mocking Bird").transform.position);
         }
     }
 
