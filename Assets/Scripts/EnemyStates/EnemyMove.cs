@@ -48,7 +48,7 @@ public class EnemyMove : IState
     public void Enter()
     {
         travelingToPatrolPoint = true;
-        level = GameObject.Find("Level One");
+        level = GameObject.Find("Level");
         levelPath = level.GetComponentInChildren<PathFinding>();
         animator = enemy.GetComponent<Animator>();
         travelingToPatrolPoint = true;
@@ -65,13 +65,17 @@ public class EnemyMove : IState
         {
             TravelPath();
         }
-        
+
         GameObject decoy = GameObject.FindGameObjectWithTag("Mocking Bird");
-        
+
         if (decoy != null && decoy != decoyTarget)
         {
+            Debug.Log("New Mocking Bird");
             decoyTarget = decoy;
             GeneratePath(GameObject.FindGameObjectWithTag("Mocking Bird").transform.position);
+            Debug.Log("New Mocking Bird");
+            Debug.Log(travelingPath.Count);
+
         }
     }
 
