@@ -7,6 +7,7 @@ public class SmokeTrap : MonoBehaviour
     public bool isActive;
     public BoxCollider2D boxCollider2D;
     public Animator animator;
+    public bool isPickup;
 
     // Start is called before the first frame update
     void Awake()
@@ -14,6 +15,13 @@ public class SmokeTrap : MonoBehaviour
         boxCollider2D = this.GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
         animator.SetBool("isActive", isActive);
+
+        if (isPickup)
+        {
+            MaterialPickup pickup = new MaterialPickup();
+            this.gameObject.AddComponent(pickup.GetType());
+            pickup.type = MaterialType.SMOKE_TRAP;
+        }
     }
 
     // Update is called once per frame
@@ -26,14 +34,14 @@ public class SmokeTrap : MonoBehaviour
     {
         animator.SetBool("isActive", true);
         isActive = true;
-        GetComponent<MaterialPickup>().enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player" && !isActive)
+        if (other.tag == "Player" && isPickup)
         {
             Destroy(this.gameObject);
+            Debug.Log("Destroying");
             Supplies.instance.smokeTraps += 1;
         }
 

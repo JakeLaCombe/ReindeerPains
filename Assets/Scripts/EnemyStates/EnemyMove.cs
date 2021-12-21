@@ -7,11 +7,11 @@ using UnityEngine.SceneManagement;
 public class EnemyMove : IState
 {
     private Enemy enemy;
-    bool travelingToPatrolPoint = true;
     List<AStarNode> travelingPath;
     PathFinding levelPath;
     public Animator animator;
-    public PatrolTypes patrolType;
+    public PatrolTypes initialPatrolType;
+    public PatrolTypes currentPatrolType;
     public GameObject detectionRadar;
     GameObject level;
     private Vector3 originalPosition;
@@ -28,7 +28,13 @@ public class EnemyMove : IState
         FREEZE,
     }
 
-    PathState currentState;
+    enum TargetDestination
+    {
+        PATROL_DESTINATION,
+        ORIGINAL_LOCATION,
+    }
+
+    TargetDestination currentDestination = TargetDestination.PATROL_DESTINATION;
 
     private Vector2[] detectionPoints = {
         new Vector2(-1.0f, 0.0f),
@@ -40,28 +46,24 @@ public class EnemyMove : IState
     public EnemyMove(Enemy enemy, PatrolTypes patrolType, Vector3 patrolDestination)
     {
         this.enemy = enemy;
-        this.patrolType = patrolType;
+        this.initialPatrolType = patrolType;
+        this.currentPatrolType = this.initialPatrolType;
         this.patrolDestination = patrolDestination;
-        this.currentState = PathState.GENERATE_PATH;
         originalPosition = enemy.transform.position;
     }
     public void Enter()
     {
-        travelingToPatrolPoint = true;
         level = GameObject.Find("Level");
         levelPath = level.GetComponentInChildren<PathFinding>();
         animator = enemy.GetComponent<Animator>();
-        travelingToPatrolPoint = true;
         detectionRadar = enemy.transform.Find("Detection Radar").gameObject;
+        travelingPath = new List<AStarNode>();
+        currentDestination = TargetDestination.ORIGINAL_LOCATION;
+        decoyTarget = null;
     }
     public void Execute()
     {
-        if (currentState == PathState.GENERATE_PATH)
-        {
-            GeneratePath(patrolDestination);
-        }
-
-        if (currentState == PathState.TRAVEL_PATH)
+        if (currentPatrolType != PatrolTypes.STANDING)
         {
             TravelPath();
         }
@@ -71,7 +73,8 @@ public class EnemyMove : IState
         if (decoy != null && decoy != decoyTarget)
         {
             decoyTarget = decoy;
-            travelingToPatrolPoint = true;
+            currentDestination = TargetDestination.PATROL_DESTINATION;
+            currentPatrolType = PatrolTypes.MOVING;
             GeneratePath(GameObject.FindGameObjectWithTag("Mocking Bird").transform.position);
         }
     }
@@ -79,28 +82,15 @@ public class EnemyMove : IState
 
     private void GeneratePath(Vector3 destination)
     {
-        speed = 1.0f;
-        if (travelingToPatrolPoint)
-        {
-            Vector3 flooredDestination = new Vector3(Mathf.Floor(destination.x) + 0.5f, Mathf.Floor(destination.y) + 0.5f, destination.z);
-            travelingPath = levelPath.FindPath(enemy.transform.position, flooredDestination);
-            travelingToPatrolPoint = false;
-        }
-        else
-        {
-            travelingPath = levelPath.FindPath(enemy.transform.position, originalPosition);
-            travelingToPatrolPoint = true;
-        }
-
-        currentState = PathState.TRAVEL_PATH;
+        Vector3 flooredDestination = new Vector3(Mathf.Floor(destination.x) + 0.5f, Mathf.Floor(destination.y) + 0.5f, destination.z);
+        travelingPath = levelPath.FindPath(enemy.transform.position, flooredDestination);
     }
 
     public void NewDestination(Vector3 newPosition)
     {
         speed = 8.0f;
         travelingPath = levelPath.FindPath(enemy.transform.position, newPosition);
-        travelingToPatrolPoint = true;
-        currentState = PathState.TRAVEL_PATH;
+        currentDestination = TargetDestination.PATROL_DESTINATION;
     }
 
     private void TravelPath()
@@ -122,9 +112,21 @@ public class EnemyMove : IState
 
             animator.SetBool("isRunning", true);
         }
-        else if (!travelingToPatrolPoint || patrolType != PatrolTypes.STANDING)
+        else if (currentDestination == TargetDestination.ORIGINAL_LOCATION && initialPatrolType != PatrolTypes.STANDING)
         {
-            currentState = PathState.GENERATE_PATH;
+            Debug.Log("Going to Patrol");
+            speed = 1.0f;
+            GeneratePath(patrolDestination);
+            currentDestination = TargetDestination.PATROL_DESTINATION;
+            animator.SetBool("isRunning", false);
+        }
+        else if (currentDestination == TargetDestination.PATROL_DESTINATION)
+        {
+            Debug.Log("Going to Original Place");
+            speed = 1.0f;
+            GeneratePath(originalPosition);
+            currentPatrolType = PatrolTypes.MOVING;
+            currentDestination = TargetDestination.ORIGINAL_LOCATION;
             animator.SetBool("isRunning", false);
         }
         else
@@ -196,8 +198,9 @@ public class EnemyMove : IState
 
     public void Freeze()
     {
-        currentState = PathState.FREEZE;
+        currentPatrolType = PatrolTypes.STANDING;
         animator.SetBool("isRunning", false);
+        enemy.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
     }
 
     public void OnTriggerEnter2D(Collider2D other)
