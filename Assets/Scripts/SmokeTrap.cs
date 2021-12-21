@@ -19,7 +19,7 @@ public class SmokeTrap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
     }
 
     public void Activate()

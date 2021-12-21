@@ -21,7 +21,7 @@ public class VaccineProjectile : MonoBehaviour
     {
         float xScale = 1.0f;
 
-        if ( rigidBody2D.velocity.x > 0)
+        if (rigidBody2D.velocity.x > 0)
         {
             xScale = -1.0f;
         }
@@ -40,7 +40,8 @@ public class VaccineProjectile : MonoBehaviour
 
     }
 
-    void OnTriggerEnter2D(Collider2D other) {
+    void OnTriggerEnter2D(Collider2D other)
+    {
         Enemy enemy = other.GetComponent<Enemy>();
 
         if (enemy != null && !enemy.HasBeenVaccinated())
