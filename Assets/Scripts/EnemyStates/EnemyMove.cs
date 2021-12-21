@@ -70,12 +70,9 @@ public class EnemyMove : IState
 
         if (decoy != null && decoy != decoyTarget)
         {
-            Debug.Log("New Mocking Bird");
             decoyTarget = decoy;
+            travelingToPatrolPoint = true;
             GeneratePath(GameObject.FindGameObjectWithTag("Mocking Bird").transform.position);
-            Debug.Log("New Mocking Bird");
-            Debug.Log(travelingPath.Count);
-
         }
     }
 
@@ -85,7 +82,8 @@ public class EnemyMove : IState
         speed = 1.0f;
         if (travelingToPatrolPoint)
         {
-            travelingPath = levelPath.FindPath(enemy.transform.position, destination);
+            Vector3 flooredDestination = new Vector3(Mathf.Floor(destination.x) + 0.5f, Mathf.Floor(destination.y) + 0.5f, destination.z);
+            travelingPath = levelPath.FindPath(enemy.transform.position, flooredDestination);
             travelingToPatrolPoint = false;
         }
         else
