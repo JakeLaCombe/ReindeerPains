@@ -19,13 +19,14 @@ public class SmokeTrap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // animator.SetBool("isActive", isActive);
+       
     }
 
     public void Activate()
     {
         animator.SetBool("isActive", true);
         isActive = true;
+        GetComponent<MaterialPickup>().enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

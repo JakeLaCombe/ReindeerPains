@@ -29,8 +29,11 @@ public class MaterialPickup : MonoBehaviour
             case MaterialType.ROOSTER_DECOY:
                 Supplies.instance.roosterDecoys += 1;
                 break;
-             case MaterialType.SHOTGUN:
+            case MaterialType.SHOTGUN:
                 Supplies.instance.hasShotgun = true;
+                break;
+            case MaterialType.SMOKE_TRAP:
+                Supplies.instance.smokeTraps += 1;
                 break;
         }
 
@@ -44,6 +47,6 @@ public enum MaterialType
     COVID_PILL,
     VACCINE,
     ROOSTER_DECOY,
-    SHOTGUN
-
+    SHOTGUN,
+    SMOKE_TRAP
 }

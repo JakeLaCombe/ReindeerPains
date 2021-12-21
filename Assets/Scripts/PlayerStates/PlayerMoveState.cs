@@ -103,10 +103,9 @@ public class PlayerMoveState : IState
             Supplies.instance.smokeTraps -= 1;
         }
 
-        if (player.input.ShootVaccine() && Supplies.instance.hasShotgun)
+        if (player.input.ShootVaccine())
         {
-            VaccineProjectile projectile = GameObject.Instantiate(Prefabs.instance.VACCINE_PROJECTILE, player.transform.position, Quaternion.identity);
-            projectile.LaunchDirection(player.actionPoint.transform.localPosition * player.transform.localScale.x);
+            ProcessVaccination();
         }
     }
 
@@ -127,12 +126,6 @@ public class PlayerMoveState : IState
 
                 TileBase tile = wall.GetComponent<Tilemap>().GetTile(position);
 
-
-                if (tile != null)
-                {
-                    Debug.Log(tile.name);
-                }
-
                 if (tile != null && (tile.name == "StoreExit" || tile.name == "ChimnyExit"))
                 {
                     SceneManager.LoadScene("Town");
@@ -150,19 +143,45 @@ public class PlayerMoveState : IState
                 materialPickup.GetComponent<MaterialPickup>().GrabItem();
             }
 
-             GameObject enemyObject = player.GetTouchingObjects().Find(delegate (GameObject bk)
-               {
-                   return bk.GetComponent<Enemy>() != null;
-               }
-           );
+            GameObject enemyObject = player.GetTouchingObjects().Find(delegate (GameObject bk)
+              {
+                  return bk.GetComponent<Enemy>() != null;
+              }
+          );
+        }
+    }
+
+    public void ProcessVaccination()
+    {
+        if (Supplies.instance.vaccines <= -1)
+        {
+            return;
+        }
+
+        if (player.GetTouchingObjects().Count > 0)
+        {
+            GameObject enemyObject = player.GetTouchingObjects().Find(delegate (GameObject bk)
+             {
+                 return bk.GetComponent<Enemy>() != null;
+             }
+         );
+
 
             Enemy enemy = enemyObject != null ? enemyObject.GetComponent<Enemy>() : null;
 
-            if (enemy != null && !enemy.HasBeenVaccinated() && Supplies.instance.vaccines > 0)
+            if (enemy != null && !enemy.HasBeenVaccinated())
             {
-                Supplies.instance.vaccines -= 1;
                 enemy.GetComponent<Enemy>().Vaccinate();
+                Supplies.instance.vaccines -= 1;
+                return;
             }
+        }
+
+        if (Supplies.instance.hasShotgun)
+        {
+            VaccineProjectile projectile = GameObject.Instantiate(Prefabs.instance.VACCINE_PROJECTILE, player.transform.position, Quaternion.identity);
+            projectile.LaunchDirection(player.actionPoint.transform.localPosition * player.transform.localScale.x);
+            Supplies.instance.vaccines -= 1;
         }
     }
 

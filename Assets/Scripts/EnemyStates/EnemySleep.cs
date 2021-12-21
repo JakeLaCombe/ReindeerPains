@@ -38,7 +38,6 @@ public class EnemySleep : IState
     public IEnumerator MovePlayer()
     {
         yield return new WaitForSeconds(10.0f);
-        Debug.Log("Done");
         enemy.MovePlayer();
     }
 
