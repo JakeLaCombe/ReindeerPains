@@ -114,7 +114,6 @@ public class EnemyMove : IState
         }
         else if (currentDestination == TargetDestination.ORIGINAL_LOCATION && initialPatrolType != PatrolTypes.STANDING)
         {
-            Debug.Log("Going to Patrol");
             speed = 1.0f;
             GeneratePath(patrolDestination);
             currentDestination = TargetDestination.PATROL_DESTINATION;
@@ -122,7 +121,6 @@ public class EnemyMove : IState
         }
         else if (currentDestination == TargetDestination.PATROL_DESTINATION)
         {
-            Debug.Log("Going to Original Place");
             speed = 1.0f;
             GeneratePath(originalPosition);
             currentPatrolType = PatrolTypes.MOVING;

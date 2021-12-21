@@ -25,6 +25,7 @@ public class Smoke : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
+            Debug.Log("Entered Enemy");
             other.gameObject.GetComponent<Enemy>().SleepTransition();
         }
     }

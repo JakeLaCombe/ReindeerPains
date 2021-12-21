@@ -18,6 +18,7 @@ public class MaterialPickup : MonoBehaviour
         switch (type)
         {
             case MaterialType.REINDEER_PILL:
+                Debug.Log("New Reindeer Pill");
                 Supplies.instance.reindeerPills += 1;
                 break;
             case MaterialType.COVID_PILL:
@@ -33,6 +34,7 @@ public class MaterialPickup : MonoBehaviour
                 Supplies.instance.hasShotgun = true;
                 break;
             case MaterialType.SMOKE_TRAP:
+                Debug.Log("New Trap");
                 Supplies.instance.smokeTraps += 1;
                 break;
         }

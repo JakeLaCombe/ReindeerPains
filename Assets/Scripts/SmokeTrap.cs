@@ -19,8 +19,9 @@ public class SmokeTrap : MonoBehaviour
         if (isPickup)
         {
             MaterialPickup pickup = new MaterialPickup();
-            this.gameObject.AddComponent(pickup.GetType());
             pickup.type = MaterialType.SMOKE_TRAP;
+            this.gameObject.AddComponent(pickup.GetType());
+            GetComponent<MaterialPickup>().type = MaterialType.SMOKE_TRAP;
         }
     }
 
@@ -41,7 +42,6 @@ public class SmokeTrap : MonoBehaviour
         if (other.tag == "Player" && isPickup)
         {
             Destroy(this.gameObject);
-            Debug.Log("Destroying");
             Supplies.instance.smokeTraps += 1;
         }
 
