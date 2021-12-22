@@ -12,11 +12,13 @@ public class PlayerMoveState : IState
         new Vector2(-1.0f, 0.0f),
         new Vector2(1.0f, 0.0f),
         new Vector2(0.0f, 0.5f),
-        new Vector2(0.0f, -1.25f)
+        new Vector2(0.0f, -0.5f)
     };
     public PlayerMoveState(Player player)
     {
         this.player = player;
+        Supplies.instance.CacheSupplies();
+        Supplies.instance.remainingDays -= 1;
     }
     public void Enter()
     {
@@ -143,11 +145,16 @@ public class PlayerMoveState : IState
                 materialPickup.GetComponent<MaterialPickup>().GrabItem();
             }
 
-            GameObject enemyObject = player.GetTouchingObjects().Find(delegate (GameObject bk)
-              {
-                  return bk.GetComponent<Enemy>() != null;
-              }
-          );
+            GameObject swapPill = player.GetTouchingObjects().Find(delegate (GameObject bk)
+               {
+                   return bk.GetComponent<SwapPill>() != null;
+               }
+           );
+
+            if (swapPill != null)
+            {
+                swapPill.GetComponent<SwapPill>().Swap();
+            }
         }
     }
 

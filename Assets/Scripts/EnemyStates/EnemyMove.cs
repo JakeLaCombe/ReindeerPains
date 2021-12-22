@@ -17,7 +17,7 @@ public class EnemyMove : IState
     private Vector3 originalPosition;
     private Vector3 patrolDestination;
     private GameObject decoyTarget;
-
+    private Vector3 startingDirection;
     private float speed = 1.0f;
 
     enum PathState
@@ -43,13 +43,14 @@ public class EnemyMove : IState
         new Vector2(0.0f, -1.0f)
     };
 
-    public EnemyMove(Enemy enemy, PatrolTypes patrolType, Vector3 patrolDestination)
+    public EnemyMove(Enemy enemy, PatrolTypes patrolType, Vector3 patrolDestination, Vector3 startingDirection)
     {
         this.enemy = enemy;
         this.initialPatrolType = patrolType;
         this.currentPatrolType = this.initialPatrolType;
         this.patrolDestination = patrolDestination;
-        originalPosition = enemy.transform.position;
+        this.originalPosition = enemy.transform.position;
+        this.startingDirection = startingDirection;
     }
     public void Enter()
     {
@@ -60,6 +61,7 @@ public class EnemyMove : IState
         travelingPath = new List<AStarNode>();
         currentDestination = TargetDestination.ORIGINAL_LOCATION;
         decoyTarget = null;
+        DetermineAnimation(Vector3.zero, startingDirection);
     }
     public void Execute()
     {

@@ -11,13 +11,14 @@ public class Enemy : MonoBehaviour
     public EnemyMove enemyMoveState;
     public EnemyShoot enemyShoot;
     public EnemySleep enemySleep;
+    public Vector3 startingDirection = new Vector3(1.0f, 1.0f, 1.0f);
 
     private bool isVaccinated;
 
-    void Start()
+    void Awake()
     {
         stateMachine = new StateMachine();
-        enemyMoveState = new EnemyMove(this, patrolType, patrolDestination);
+        enemyMoveState = new EnemyMove(this, patrolType, patrolDestination, startingDirection);
         enemyShoot = new EnemyShoot(this);
         enemySleep = new EnemySleep(this);
         stateMachine.ChangeState(enemyMoveState);
@@ -53,7 +54,7 @@ public class Enemy : MonoBehaviour
     {
         isVaccinated = true;
         this.transform.Find("Vaccinated").gameObject.SetActive(true);
-        
+
         if (stateMachine.currentState == enemyMoveState)
         {
             enemyMoveState.NewDestination(GameObject.Find("Player").transform.position);
