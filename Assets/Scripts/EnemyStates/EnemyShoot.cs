@@ -18,6 +18,7 @@ public class EnemyShoot : IState
     {
         animator = enemy.GetComponent<Animator>();
         animator.SetBool("isShooting", true);
+        SoundManager.instance.Shoot.Play();
     }
     public void Execute()
     {

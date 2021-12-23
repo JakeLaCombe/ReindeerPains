@@ -96,6 +96,8 @@ public class PlayerMoveState : IState
             MockingBird bird = GameObject.Instantiate(Prefabs.instance.MOCKING_BIRD, player.transform.position, Quaternion.identity);
             bird.Activate();
             Supplies.instance.roosterDecoys -= 1;
+            SoundManager.instance.Decoy.Play();
+
         }
 
         if (player.input.DropGas() && Supplies.instance.smokeTraps > 0)
@@ -103,6 +105,7 @@ public class PlayerMoveState : IState
             SmokeTrap trap = GameObject.Instantiate(Prefabs.instance.SMOKE_TRAP, player.transform.position, Quaternion.identity);
             trap.Activate();
             Supplies.instance.smokeTraps -= 1;
+            SoundManager.instance.TrapSetoff.Play();
         }
 
         if (player.input.ShootVaccine())
@@ -130,7 +133,14 @@ public class PlayerMoveState : IState
 
                 if (tile != null && (tile.name == "StoreExit" || tile.name == "ChimnyExit"))
                 {
-                    SceneManager.LoadScene("Town");
+                    if (Supplies.instance.remainingDays > 0)
+                    {
+                        SceneManager.LoadScene("Town");
+                    }
+                    else
+                    {
+                        SceneManager.LoadScene("Ending");
+                    }
                 }
             }
 
@@ -143,6 +153,7 @@ public class PlayerMoveState : IState
             if (materialPickup != null)
             {
                 materialPickup.GetComponent<MaterialPickup>().GrabItem();
+                SoundManager.instance.Pickup.Play();
             }
 
             GameObject swapPill = player.GetTouchingObjects().Find(delegate (GameObject bk)
@@ -154,6 +165,7 @@ public class PlayerMoveState : IState
             if (swapPill != null)
             {
                 swapPill.GetComponent<SwapPill>().Swap();
+                SoundManager.instance.Pickup.Play();
             }
         }
     }
@@ -180,6 +192,7 @@ public class PlayerMoveState : IState
             {
                 enemy.GetComponent<Enemy>().Vaccinate();
                 Supplies.instance.vaccines -= 1;
+                SoundManager.instance.Vaccinate.Play();
                 return;
             }
         }
@@ -189,6 +202,7 @@ public class PlayerMoveState : IState
             VaccineProjectile projectile = GameObject.Instantiate(Prefabs.instance.VACCINE_PROJECTILE, player.transform.position, Quaternion.identity);
             projectile.LaunchDirection(player.actionPoint.transform.localPosition * player.transform.localScale.x);
             Supplies.instance.vaccines -= 1;
+            SoundManager.instance.Shoot.Play();
         }
     }
 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6256889131754163271}
   - component: {fileID: 6256889131754163272}
   - component: {fileID: 6256889131754163269}
+  - component: {fileID: 1669961585}
   m_Layer: 0
   m_Name: Swap Pill
   m_TagString: Untagged
@@ -111,3 +112,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.5317826}
   m_EdgeRadius: 0
+--- !u!114 &1669961585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6256889131754163273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d41ad37295e1f849ae00d77277dc147, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SwapSprite: {fileID: 844242610, guid: 97739202ed989ce42804da01bd6f24aa, type: 3}

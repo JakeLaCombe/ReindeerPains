@@ -12,7 +12,7 @@ public class PlayerDeadState : IState
     }
     public void Enter()
     {
-
+        GameObject.Find("Theme").GetComponent<AudioSource>().Stop();
     }
     public void Execute()
     {
@@ -34,7 +34,14 @@ public class PlayerDeadState : IState
     public IEnumerator RestartTown()
     {
         yield return new WaitForSeconds(5.0f);
-        SceneManager.LoadScene("Town");
+        if (Supplies.instance.remainingDays > 0)
+        {
+            SceneManager.LoadScene("Town");
+        }
+        else
+        {
+            SceneManager.LoadScene("Ending");
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D other)
