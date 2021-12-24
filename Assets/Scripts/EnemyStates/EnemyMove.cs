@@ -74,10 +74,15 @@ public class EnemyMove : IState
 
         if (decoy != null && decoy != decoyTarget)
         {
-            decoyTarget = decoy;
-            currentDestination = TargetDestination.PATROL_DESTINATION;
-            currentPatrolType = PatrolTypes.MOVING;
-            GeneratePath(GameObject.FindGameObjectWithTag("Mocking Bird").transform.position);
+            List<AStarNode> nextPath = CalculatePath(GameObject.FindGameObjectWithTag("Mocking Bird").transform.position);
+
+            if (nextPath.Count < 20)
+            {
+                decoyTarget = decoy;
+                currentDestination = TargetDestination.PATROL_DESTINATION;
+                currentPatrolType = PatrolTypes.MOVING;
+                travelingPath = nextPath;
+            }
         }
     }
 
@@ -88,10 +93,17 @@ public class EnemyMove : IState
         travelingPath = levelPath.FindPath(enemy.transform.position, flooredDestination);
     }
 
+    private List<AStarNode> CalculatePath(Vector3 destination)
+    {
+        Vector3 flooredDestination = new Vector3(Mathf.Floor(destination.x) + 0.5f, Mathf.Floor(destination.y) + 0.5f, destination.z);
+        return levelPath.FindPath(enemy.transform.position, flooredDestination);
+    }
+
     public void NewDestination(Vector3 newPosition)
     {
         speed = 8.0f;
-        travelingPath = levelPath.FindPath(enemy.transform.position, newPosition);
+        Vector3 flooredPosition = new Vector3(Mathf.Floor(newPosition.x) + 0.5f, Mathf.Floor(newPosition.y) + 0.5f, newPosition.z);
+        travelingPath = levelPath.FindPath(enemy.transform.position, flooredPosition);
         currentDestination = TargetDestination.PATROL_DESTINATION;
     }
 
@@ -99,6 +111,7 @@ public class EnemyMove : IState
     {
         if (travelingPath.Count > 0)
         {
+            Debug.Log("Traveling");
             Vector3 nextPosition = levelPath.GetWorldCoordinates(travelingPath[0]);
             nextPosition.z = enemy.transform.position.z;
             nextPosition.x += 0.5f;
@@ -120,6 +133,7 @@ public class EnemyMove : IState
             GeneratePath(patrolDestination);
             currentDestination = TargetDestination.PATROL_DESTINATION;
             animator.SetBool("isRunning", false);
+            DetermineAnimation(Vector3.zero, startingDirection);
         }
         else if (currentDestination == TargetDestination.PATROL_DESTINATION)
         {

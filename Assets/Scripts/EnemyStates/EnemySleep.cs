@@ -22,6 +22,7 @@ public class EnemySleep : IState
         detectionRadar = enemy.transform.Find("Detection Radar").gameObject;
         animator.SetBool("isSleeping", true);
         enemy.StartCoroutine(MovePlayer());
+        SoundManager.instance.TrapSetoff.Play();
     }
     public void Execute()
     {

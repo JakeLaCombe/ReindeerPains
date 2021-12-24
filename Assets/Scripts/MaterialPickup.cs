@@ -10,6 +10,7 @@ public class MaterialPickup : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            SoundManager.instance.Pickup.Play();
             GrabItem();
         }
     }
@@ -18,14 +19,13 @@ public class MaterialPickup : MonoBehaviour
         switch (type)
         {
             case MaterialType.REINDEER_PILL:
-                Debug.Log("New Reindeer Pill");
                 Supplies.instance.reindeerPills += 1;
                 break;
             case MaterialType.COVID_PILL:
-                Supplies.instance.covidPills += 1;
+                Supplies.instance.covidPills += 3;
                 break;
             case MaterialType.VACCINE:
-                Supplies.instance.vaccines += 1;
+                Supplies.instance.vaccines += 2;
                 break;
             case MaterialType.ROOSTER_DECOY:
                 Supplies.instance.roosterDecoys += 1;
@@ -34,7 +34,6 @@ public class MaterialPickup : MonoBehaviour
                 Supplies.instance.hasShotgun = true;
                 break;
             case MaterialType.SMOKE_TRAP:
-                Debug.Log("New Trap");
                 Supplies.instance.smokeTraps += 1;
                 break;
         }

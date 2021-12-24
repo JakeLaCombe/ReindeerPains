@@ -33,7 +33,7 @@ public class PlayerDeadState : IState
 
     public IEnumerator RestartTown()
     {
-        yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(3.0f);
         if (Supplies.instance.remainingDays > 0)
         {
             SceneManager.LoadScene("Town");

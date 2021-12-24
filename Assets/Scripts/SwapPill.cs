@@ -8,8 +8,9 @@ public class SwapPill : MonoBehaviour
     public Sprite SwapSprite;
     public void Swap()
     {
-        if (Supplies.instance.covidPills > 0)
+        if (!isSwapped && Supplies.instance.covidPills > 0)
         {
+            isSwapped = true;
             Supplies.instance.covidPills -= 1;
             Supplies.instance.reindeerPills += 1;
             SpriteRenderer renderer = GetComponent<SpriteRenderer>();

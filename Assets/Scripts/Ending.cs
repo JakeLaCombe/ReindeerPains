@@ -18,7 +18,7 @@ public class Ending : MonoBehaviour
             text.text += "\n\nNot so well! No Christmas for you this year!";
             GameObject.Find("EndingFailed").GetComponent<AudioSource>().Play();
         }
-        else if (Supplies.instance.reindeerPills < 20)
+        else if (Supplies.instance.reindeerPills < 100 || Supplies.instance.vaccinatedAdults < 10)
         {
             text.text += "\n\nNot bad, but the reindeers can use more!";
             GameObject.Find("EndingSuccess").GetComponent<AudioSource>().Play();

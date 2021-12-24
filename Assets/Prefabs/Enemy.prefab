@@ -208,6 +208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patrolType: 1
   patrolDestination: {x: 12, y: 4, z: 0}
+  startingDirection: {x: 1, y: 1, z: 1}
 --- !u!61 &5629632976333510370
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -267,6 +268,7 @@ GameObject:
   - component: {fileID: 4947639899336390803}
   - component: {fileID: 3300409944063742335}
   - component: {fileID: 7781329021834850161}
+  - component: {fileID: 368716382807573024}
   m_Layer: 0
   m_Name: Detection Radar
   m_TagString: Untagged
@@ -354,7 +356,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.06515837, y: 0.0047804117}
+  m_Offset: {x: 0.030347526, y: 0.0047804117}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -365,7 +367,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6966443, y: 0.8464539}
+  m_Size: {x: 0.6270226, y: 0.8464539}
   m_EdgeRadius: 0
 --- !u!114 &7781329021834850161
 MonoBehaviour:
@@ -379,3 +381,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 534fabafcf56ef146bf6e9dca868e40f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &368716382807573024
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5928646144230564795}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

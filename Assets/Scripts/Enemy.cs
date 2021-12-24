@@ -54,11 +54,20 @@ public class Enemy : MonoBehaviour
     {
         isVaccinated = true;
         this.transform.Find("Vaccinated").gameObject.SetActive(true);
+        Supplies.instance.vaccinatedAdults += 1;
+
+        Debug.Log("Vaccinating");
 
         if (stateMachine.currentState == enemyMoveState)
         {
             enemyMoveState.NewDestination(GameObject.Find("Player").transform.position);
         }
+    }
+
+    public void KillPlayer()
+    {
+        ShootTransition();
+        GameObject.FindWithTag("Player").GetComponent<Player>().Kill();
     }
 
     public bool HasBeenVaccinated()

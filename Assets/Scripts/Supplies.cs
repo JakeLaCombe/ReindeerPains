@@ -11,6 +11,7 @@ public class Supplies
     public int smokeTraps;
     public bool hasShotgun;
     public int remainingDays;
+    public int vaccinatedAdults;
 
     private int vaccineCache;
     private int reindeerPillCache;
@@ -18,6 +19,7 @@ public class Supplies
     private int roosterDecoysCache;
     private int smokeTrapsCache;
     private bool hasShotgunCache;
+    public int vaccinatedAdultsCache;
 
 
     private Supplies()
@@ -25,9 +27,10 @@ public class Supplies
         vaccines = 0;
         reindeerPills = 0;
         covidPills = 0;
-        roosterDecoys = 0;
+        roosterDecoys = 1;
         smokeTraps = 0;
         remainingDays = 14;
+        vaccinatedAdults = 0;
     }
 
     public void Reset()
@@ -39,6 +42,7 @@ public class Supplies
         smokeTraps = 0;
         hasShotgun = false;
         remainingDays = 14;
+        vaccinatedAdults = 0;
     }
 
     public void CacheSupplies()
@@ -49,6 +53,7 @@ public class Supplies
         roosterDecoysCache = roosterDecoys;
         smokeTrapsCache = smokeTraps;
         hasShotgunCache = hasShotgun;
+        vaccinatedAdultsCache = vaccinatedAdults;
     }
 
     public void RestoreFromCache()
@@ -59,5 +64,6 @@ public class Supplies
         roosterDecoys = roosterDecoysCache;
         smokeTraps = smokeTrapsCache;
         hasShotgun = hasShotgunCache;
+        vaccinatedAdults = vaccinatedAdultsCache;
     }
 }

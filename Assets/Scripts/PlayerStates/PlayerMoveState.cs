@@ -105,7 +105,7 @@ public class PlayerMoveState : IState
             SmokeTrap trap = GameObject.Instantiate(Prefabs.instance.SMOKE_TRAP, player.transform.position, Quaternion.identity);
             trap.Activate();
             Supplies.instance.smokeTraps -= 1;
-            SoundManager.instance.TrapSetoff.Play();
+            SoundManager.instance.Pickup.Play();
         }
 
         if (player.input.ShootVaccine())
@@ -172,7 +172,7 @@ public class PlayerMoveState : IState
 
     public void ProcessVaccination()
     {
-        if (Supplies.instance.vaccines <= -1)
+        if (Supplies.instance.vaccines <= 0)
         {
             return;
         }
@@ -192,6 +192,7 @@ public class PlayerMoveState : IState
             {
                 enemy.GetComponent<Enemy>().Vaccinate();
                 Supplies.instance.vaccines -= 1;
+                Supplies.instance.vaccinatedAdults += 1;
                 SoundManager.instance.Vaccinate.Play();
                 return;
             }

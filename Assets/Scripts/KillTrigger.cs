@@ -25,7 +25,7 @@ public class KillTrigger : MonoBehaviour
 
         if (other.tag == "Player")
         {
-            this.GetComponentInParent<Enemy>().OnTriggerEnter2D(other);
+            this.GetComponentInParent<Enemy>().KillPlayer();
         }
     }
 }
