@@ -14,6 +14,8 @@ public class MaterialsUI : MonoBehaviour
     public TextMeshProUGUI TrapCount;
     public TextMeshProUGUI VaccinatedCount;
 
+    public GameObject ShotGun;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -25,6 +27,7 @@ public class MaterialsUI : MonoBehaviour
         RoosterDecoyCount = this.transform.Find("Rooster Decoy Count").GetComponent<TextMeshProUGUI>();
         TrapCount = this.transform.Find("TrapCount").GetComponent<TextMeshProUGUI>();
         VaccinatedCount = this.transform.Find("VaccinatedCount").GetComponent<TextMeshProUGUI>();
+        ShotGun = this.transform.Find("ShotGun").gameObject;
     }
 
     // Update is called once per frame
@@ -37,5 +40,6 @@ public class MaterialsUI : MonoBehaviour
         RoosterDecoyCount.text = Supplies.instance.roosterDecoys.ToString();
         TrapCount.text = Supplies.instance.smokeTraps.ToString();
         VaccinatedCount.text = Supplies.instance.vaccinatedAdults.ToString();
+        ShotGun.SetActive(Supplies.instance.hasShotgun);
     }
 }

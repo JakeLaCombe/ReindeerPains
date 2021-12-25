@@ -1158,7 +1158,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Swap the Pill and escape through the Chimney
+  m_text: Gets Supplies and head out to a house
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f0f003b05fb32ca4abb4b0bdd2848f6e, type: 2}
   m_sharedMaterial: {fileID: -214483039941506788, guid: f0f003b05fb32ca4abb4b0bdd2848f6e, type: 2}

@@ -15,6 +15,7 @@ public class SwapPill : MonoBehaviour
             Supplies.instance.reindeerPills += 1;
             SpriteRenderer renderer = GetComponent<SpriteRenderer>();
             renderer.sprite = SwapSprite;
+            SoundManager.instance.Pickup.Play();
         }
     }
 }

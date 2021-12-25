@@ -165,7 +165,6 @@ public class PlayerMoveState : IState
             if (swapPill != null)
             {
                 swapPill.GetComponent<SwapPill>().Swap();
-                SoundManager.instance.Pickup.Play();
             }
         }
     }

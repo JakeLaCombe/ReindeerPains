@@ -27,7 +27,7 @@ public class Supplies
         vaccines = 0;
         reindeerPills = 0;
         covidPills = 0;
-        roosterDecoys = 1;
+        roosterDecoys = 0;
         smokeTraps = 0;
         remainingDays = 14;
         vaccinatedAdults = 0;
